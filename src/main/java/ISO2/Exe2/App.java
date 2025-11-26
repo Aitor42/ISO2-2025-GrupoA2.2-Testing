@@ -2,10 +2,9 @@ package ISO2.Exe2;
 
 import service.InputService;
 import exception.InputException;
-import io.ConsoleInputReader;
 import parser.IntegerParser;
-import parser.BooleanParser;
 import parser.DoubleParser;
+import parser.BooleanParser;
 
 public class App {
     public static void main(String[] args) {
@@ -41,7 +40,6 @@ public class App {
     private static java.util.Map<String,String> readInteractive() throws InputException {
         java.util.Map<String,String> map = new java.util.HashMap<>();
         InputService input = new InputService();
-        ConsoleInputReader input2 = new ConsoleInputReader();
         
         System.out.println("--- Airline Fare Calculator ---");
         System.out.println("Please enter the following details:");
@@ -70,10 +68,10 @@ public class App {
         double income = input.readWithParser("Income: ", new DoubleParser(), 5);
         map.put("income", String.valueOf(income));
 
-        String preferredClass = input2.readLine("Preferred Class (ECONOMY/BUSINESS): ");
+        String preferredClass = input.readString("Preferred Class (ECONOMY/BUSINESS): ");
         map.put("preferredClass", preferredClass);
 
-        String preferredRegion = input2.readLine("Preferred Region (EUROPE/ASIA/AMERICA/OTHER): ");
+        String preferredRegion = input.readString("Preferred Region (EUROPE/ASIA/AMERICA/OTHER): ");
         map.put("preferredRegion", preferredRegion);
 
         boolean travelsWithChildrenUnder12 = input.readWithParser("Travels with children under 12? (true/false): ", new BooleanParser(), 5);

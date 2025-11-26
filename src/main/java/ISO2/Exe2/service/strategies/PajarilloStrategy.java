@@ -1,9 +1,10 @@
 package ISO2.Exe2.service.strategies;
 
+import java.util.Optional;
+
 import ISO2.Exe2.model.Customer;
 import ISO2.Exe2.model.FareOffer;
 import ISO2.Exe2.service.FareStrategy;
-import java.util.Optional;
 
 public class PajarilloStrategy implements FareStrategy {
     @Override
