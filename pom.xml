@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>JunitExample Maven Webapp</name>
+  <name>Exe2</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -16,6 +16,11 @@
       <artifactId>junit</artifactId>
       <version>4.13</version>
     </dependency>
+    <dependency>
+    	<groupId>ISO2</groupId>
+    	<artifactId>CommandLine</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>JunitExample</finalName>
