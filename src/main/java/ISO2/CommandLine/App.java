@@ -11,9 +11,9 @@ public class App {
     InputService input = new InputService();
 
     String name = input.readString("Name: ");
-    int age = input.readWithParser("Age: ", new IntegerParser(), 3);
-    double height = input.readWithParser("Height (m): ", new DoubleParser(), 3);
-    LocalDate birth = input.readWithParser("Birth (dd/MM/yyyy): ", new DateParser("dd/MM/yyyy"), 3);
+    int age = input.readWithParser("Age: ", new IntegerParser());
+    double height = input.readWithParser("Height (m): ", new DoubleParser());
+    LocalDate birth = input.readWithParser("Birth (dd/MM/yyyy): ", new DateParser("dd/MM/yyyy"));
 
     System.out.printf("Name: %s, Age: %d, Height: %.2f, Birth: %s\n", name, age, height, birth);
   }

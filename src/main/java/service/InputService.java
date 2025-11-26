@@ -21,27 +21,9 @@ public class InputService {
         return reader.readLine(prompt);
     }
 
-    public <T> T readWithParser(
-            String prompt,
-            ValueParser<T> parser,
-            int maxRetries
-    ) throws InputException {
-
-        int attempts = 0;
-
-        while (true) {
-            attempts++;
-            String line = reader.readLine(prompt);
-
-            try {
-                return parser.parse(line);
-            } catch (InputException e) {
-                writer.println("Invalid input: " + e.getMessage());
-                if (maxRetries > 0 && attempts >= maxRetries) {
-                    throw new InputException("Maximum attempts reached for: " + prompt);
-                }
-            }
-        }
+    public <T> T readWithParser(String prompt, ValueParser<T> parser) throws InputException {
+        String line = reader.readLine(prompt);
+        return parser.parse(line); 
     }
 
     public void close() {
