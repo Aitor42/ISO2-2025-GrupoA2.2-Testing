@@ -51,6 +51,7 @@ import exception.InputException;
 | IntegerParser | Integer | `new IntegerParser()` | Enteros |
 | DoubleParser | Double | `new DoubleParser()` | Decimales |
 | DateParser | Date | `new DateParser()` | Fechas (ej: "dd/MM/yyyy") |
+| BooleanParser | Boolean | `new BooleanParser()` | True/False |
 
 ### 3. Ejemplo de uso
 
