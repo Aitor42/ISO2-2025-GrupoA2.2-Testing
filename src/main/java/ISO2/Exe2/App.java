@@ -40,43 +40,51 @@ public class App {
     private static java.util.Map<String,String> readInteractive() throws InputException {
         java.util.Map<String,String> map = new java.util.HashMap<>();
         InputService input = new InputService();
-        
-        System.out.println("--- Airline Fare Calculator ---");
-        System.out.println("Please enter the following details:");
+        boolean tryAgain = false;
+        try {
+            while (tryAgain) {
+                System.out.println("--- Airline Fare Calculator ---");
+                System.out.println("Please enter the following details:");
 
-        int age = input.readWithParser("Age: ", new IntegerParser(), 5);
-        map.put("age", String.valueOf(age));
+                int age = input.readWithParser("Age: ", new IntegerParser());
+                map.put("age", String.valueOf(age));
 
-        int flightsPerYear = input.readWithParser("Flights per year: ", new IntegerParser(), 5);
-        map.put("flightsPerYear", String.valueOf(flightsPerYear));
+                int flightsPerYear = input.readWithParser("Flights per year: ", new IntegerParser());
+                map.put("flightsPerYear", String.valueOf(flightsPerYear));
 
-        boolean studentStudyingInAnotherCity = input.readWithParser("Is student studying in another city? (true/false): ", new BooleanParser(), 5);
-        map.put("studentStudyingInAnotherCity", String.valueOf(studentStudyingInAnotherCity));
+                boolean studentStudyingInAnotherCity = input.readWithParser("Is student studying in another city? (true/false): ", new BooleanParser());
+                map.put("studentStudyingInAnotherCity", String.valueOf(studentStudyingInAnotherCity));
 
-        boolean travelsFromFamilyHomeMonthly = input.readWithParser("Travels from family home monthly? (true/false): ", new BooleanParser(), 5);
-        map.put("travelsFromFamilyHomeMonthly", String.valueOf(travelsFromFamilyHomeMonthly));
+                boolean travelsFromFamilyHomeMonthly = input.readWithParser("Travels from family home monthly? (true/false): ", new BooleanParser());
+                map.put("travelsFromFamilyHomeMonthly", String.valueOf(travelsFromFamilyHomeMonthly));
 
-        boolean startedWorking = input.readWithParser("Started working? (true/false): ", new BooleanParser(), 5);
-        map.put("startedWorking", String.valueOf(startedWorking));
+                boolean startedWorking = input.readWithParser("Started working? (true/false): ", new BooleanParser());
+                map.put("startedWorking", String.valueOf(startedWorking));
 
-        boolean livesWithParents = input.readWithParser("Lives with parents? (true/false): ", new BooleanParser(), 5);
-        map.put("livesWithParents", String.valueOf(livesWithParents));
+                boolean livesWithParents = input.readWithParser("Lives with parents? (true/false): ", new BooleanParser());
+                map.put("livesWithParents", String.valueOf(livesWithParents));
 
-        int leisureTripsPerYear = input.readWithParser("Leisure trips per year: ", new IntegerParser(), 5);
-        map.put("leisureTripsPerYear", String.valueOf(leisureTripsPerYear));
+                int leisureTripsPerYear = input.readWithParser("Leisure trips per year: ", new IntegerParser());
+                map.put("leisureTripsPerYear", String.valueOf(leisureTripsPerYear));
 
-        double income = input.readWithParser("Income: ", new DoubleParser(), 5);
-        map.put("income", String.valueOf(income));
+                double income = input.readWithParser("Income: ", new DoubleParser());
+                map.put("income", String.valueOf(income));
 
-        String preferredClass = input.readString("Preferred Class (ECONOMY/BUSINESS): ");
-        map.put("preferredClass", preferredClass);
+                String preferredClass = input.readString("Preferred Class (ECONOMY/BUSINESS): ");
+                map.put("preferredClass", preferredClass);
 
-        String preferredRegion = input.readString("Preferred Region (EUROPE/ASIA/AMERICA/OTHER): ");
-        map.put("preferredRegion", preferredRegion);
+                String preferredRegion = input.readString("Preferred Region (EUROPE/ASIA/AMERICA/OTHER): ");
+                map.put("preferredRegion", preferredRegion);
 
-        boolean travelsWithChildrenUnder12 = input.readWithParser("Travels with children under 12? (true/false): ", new BooleanParser(), 5);
-        map.put("travelsWithChildrenUnder12", String.valueOf(travelsWithChildrenUnder12));
+                boolean travelsWithChildrenUnder12 = input.readWithParser("Travels with children under 12? (true/false): ", new BooleanParser());
+                map.put("travelsWithChildrenUnder12", String.valueOf(travelsWithChildrenUnder12));
 
+                tryAgain = false;
+            }
+        } catch (Exception e) {
+            tryAgain = true;
+            System.out.println("Error in input data " + e);
+        }
         return map;
     }
 }
