@@ -13,15 +13,12 @@ public class App {
             ISO2.Exe2.model.Customer.Builder b = new ISO2.Exe2.model.Customer.Builder();
             b.age(Integer.parseInt(values.get("age")));
             b.flightsPerYear(Integer.parseInt(values.get("flightsPerYear")));
-            b.studentStudyingInAnotherCity(Boolean.parseBoolean(values.get("studentStudyingInAnotherCity")));
-            b.travelsFromFamilyHomeMonthly(Boolean.parseBoolean(values.get("travelsFromFamilyHomeMonthly")));
-            b.startedWorking(Boolean.parseBoolean(values.get("startedWorking")));
+            b.isStudent(Boolean.parseBoolean(values.get("isStudent")));
             b.livesWithParents(Boolean.parseBoolean(values.get("livesWithParents")));
-            b.leisureTripsPerYear(Integer.parseInt(values.get("leisureTripsPerYear")));
             b.income(Double.parseDouble(values.get("income")));
             b.preferredClass(ISO2.Exe2.model.CabinClass.valueOf(values.get("preferredClass")));
             b.preferredRegion(ISO2.Exe2.model.DestinationRegion.valueOf(values.get("preferredRegion")));
-            b.travelsWithChildrenUnder12(Boolean.parseBoolean(values.get("travelsWithChildrenUnder12")));
+            b.travelsWithChildren(Boolean.parseBoolean(values.get("travelsWithChildren")));
 
             ISO2.Exe2.model.Customer customer = b.build();
             ISO2.Exe2.service.FareService svc = new ISO2.Exe2.service.FareService();
@@ -52,20 +49,11 @@ public class App {
                 int flightsPerYear = input.readWithParser("Flights per year: ", new IntegerParser());
                 map.put("flightsPerYear", String.valueOf(flightsPerYear));
 
-                boolean studentStudyingInAnotherCity = input.readWithParser("Is student studying in another city? (true/false): ", new BooleanParser());
-                map.put("studentStudyingInAnotherCity", String.valueOf(studentStudyingInAnotherCity));
-
-                boolean travelsFromFamilyHomeMonthly = input.readWithParser("Travels from family home monthly? (true/false): ", new BooleanParser());
-                map.put("travelsFromFamilyHomeMonthly", String.valueOf(travelsFromFamilyHomeMonthly));
-
-                boolean startedWorking = input.readWithParser("Started working? (true/false): ", new BooleanParser());
-                map.put("startedWorking", String.valueOf(startedWorking));
+                boolean isStudent = input.readWithParser("Is student? (true/false): ", new BooleanParser());
+                map.put("isStudent", String.valueOf(isStudent));
 
                 boolean livesWithParents = input.readWithParser("Lives with parents? (true/false): ", new BooleanParser());
                 map.put("livesWithParents", String.valueOf(livesWithParents));
-
-                int leisureTripsPerYear = input.readWithParser("Leisure trips per year: ", new IntegerParser());
-                map.put("leisureTripsPerYear", String.valueOf(leisureTripsPerYear));
 
                 double income = input.readWithParser("Income: ", new DoubleParser());
                 map.put("income", String.valueOf(income));
@@ -76,8 +64,8 @@ public class App {
                 String preferredRegion = input.readString("Preferred Region (EUROPE/ASIA/AMERICA/OTHER): ");
                 map.put("preferredRegion", preferredRegion);
 
-                boolean travelsWithChildrenUnder12 = input.readWithParser("Travels with children under 12? (true/false): ", new BooleanParser());
-                map.put("travelsWithChildrenUnder12", String.valueOf(travelsWithChildrenUnder12));
+                boolean travelsWithChildren = input.readWithParser("Travels with children? (true/false): ", new BooleanParser());
+                map.put("travelsWithChildren", String.valueOf(travelsWithChildren));
 
                 tryAgain = false;
             }
